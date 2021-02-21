@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Client</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  
+</head>
+<body style="background: #CECDCD">
+    <div class="container">
+
+  <!-- Header -->
+  <h2 style="font-family: 'Poppins', sans-serif;"class="center-align;letter-spacing: 1.5px">Clients</h2>
+  <!-- Input Text Box -->
+  <input id="userInput" type="text" placeholder="Enter name.." />
+  <!-- Start of list -->
+  <ul id="contactList" class="collection with-header">
+
+    <li class="collection-header">
+      <h4 >A</h4>
+    </li>
+    <li class="collection-item contact"><a style="color: black" href="amar.html">AMAR</a></li>
+    <li class="collection-item contact"><a style="color: black" href="akbar.html">AKBAR</a></li>
+    <li class="collection-item contact">ANTHONY</li>
+
+    <li class="collection-header">
+      <h4>B</h4>
+    </li>
+    <li class="collection-item contact">BABAI</li>
+    <li class="collection-item contact">BUBUN</li>
+    <li class="collection-item contact">BISHU</li>
+
+    <li class="collection-header">
+      <h4>C</h4>
+    </li>
+    <li class="collection-item contact">CHANDAN</li>
+    <li class="collection-item contact">CHITTU</li>
+    <li class="collection-item contact">CHAYAN</li>
+
+     <li class="collection-header">
+      <h4>D</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>E</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>F</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>G</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>H</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4 class="i">I</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>J</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>K</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>L</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>M</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>N</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>O</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>P</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>Q</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>R</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>S</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>T</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>U</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>V</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>W</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>X</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>Y</h4>
+    </li>
+
+     <li class="collection-header">
+      <h4>Z</h4>
+    </li>
+
+  </ul>
+  <!-- End of List -->
+</div> 
+ <script>
+     (function() {
+  "use strict";
+  //user input text box
+  let userInput = document.querySelector("#userInput");
+
+  userInput.addEventListener("keyup", filterContacts);
+
+  function filterContacts(event) {
+    //Get the user input
+    let userInputText = userInput.value;
+    //convert it to lowercase
+    userInputText = userInputText.toLowerCase();
+
+    //get the ul and all the li children inside it
+    let contactList = document.querySelector("#contactList");
+    let contactListChildren = contactList.querySelectorAll(
+      "li.collection-item"
+    );
+
+    //loop through all the list items and search for the name
+    contactListChildren.forEach(function(currentValue, index, array) {
+      //get the contact name text of each contact we are cycling through
+      let currentContact = contactListChildren[index].innerText;
+      //convert contact name text lowercase
+      currentContact = currentContact.toLowerCase();
+
+      //if the contact is found
+      if (currentContact.search(userInputText) === 0) {
+        console.log("found in " + currentContact);
+        contactListChildren[index].style.display = "block";
+      } else {
+        contactListChildren[index].style.display = "none";
+      }
+    });
+  }
+})();
+    </script>
+</body>
+</html>
